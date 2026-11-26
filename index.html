@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIDV Next-Week Brief | Allotrope Internal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #1D7E74;
+  --teal-dark: #155B55;
+  --teal-mid: #5FB0A6;
+  --teal-tint: #CFE5E2;
+  --teal-pale: #EDF6F4;
+  --gold: #F2A900;
+  --gold-pale: #FDF1D3;
+  --gold-ink: #7A5200;
+  --red: #C0392B;
+  --red-pale: #FDEDEC;
+  --bg: #F6F9F8;
+  --surface: #FFFFFF;
+  --surface-alt: #EDF6F4;
+  --ink: #22302E;
+  --muted: #5C6B68;
+  --border: #D5DAD9;
+  --shadow: 0 2px 10px rgba(21, 91, 85, 0.07);
+  --radius: 12px;
+  --font: 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+[data-theme="dark"] {
+  --bg: #0F1716;
+  --surface: #162220;
+  --surface-alt: #1C2C2A;
+  --ink: #E8F0EE;
+  --muted: #9EB0AC;
+  --border: #2B3F3C;
+  --teal-pale: #1A2E2B;
+  --teal-tint: #244540;
+  --gold-pale: #33270B;
+  --gold-ink: #F7C948;
+  --red-pale: #361918;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+  font-size: 15px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--teal); text-decoration: none; }
+[data-theme="dark"] a { color: var(--teal-mid); }
+a:hover { text-decoration: underline; }
+
+/* Top bar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--teal);
+  color: #FFFFFF;
+  border-bottom: 3px solid var(--gold);
+}
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.brand img {
+  height: 24px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+.brand-sep {
+  width: 1px;
+  height: 18px;
+  background: rgba(255,255,255,0.35);
+  flex-shrink: 0;
+}
+.brand-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.92);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.seg {
+  display: inline-flex;
+  background: rgba(0,0,0,0.22);
+  border-radius: 8px;
+  padding: 2px;
+}
+.seg button {
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 1.2;
+}
+.seg button.active {
+  background: #FFFFFF;
+  color: var(--teal-dark);
+}
+.theme-btn {
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(0,0,0,0.18);
+  color: #FFFFFF;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 9px;
+  border-radius: 8px;
+  cursor: pointer;
+  line-height: 1.2;
+}
+.theme-btn:hover { background: rgba(0,0,0,0.3); }
+
+/* Layout container */
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px 16px 48px;
+}
+
+/* Hero */
+.hero {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.pill-internal { background: var(--gold-pale); color: var(--gold-ink); }
+.pill-week { background: var(--teal-pale); color: var(--teal-dark); }
+[data-theme="dark"] .pill-week { color: var(--teal-mid); }
+.pill-nda { background: var(--red-pale); color: var(--red); }
+[data-theme="dark"] .pill-nda { color: #F1948A; }
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(22px, 3vw, 28px);
+  line-height: 1.2;
+  color: var(--ink);
+}
+.hero-sub {
+  margin: 0 0 18px;
+  color: var(--muted);
+  max-width: 78ch;
+  font-size: 15px;
+}
+
+/* Stat tiles */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.stat {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--teal);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.stat.gold { border-left-color: var(--gold); }
+.stat-num {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--teal-dark);
+}
+[data-theme="dark"] .stat-num { color: var(--teal-mid); }
+.stat.gold .stat-num { color: var(--gold-ink); }
+.stat-label {
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 3px;
+  color: var(--ink);
+}
+.stat-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Urgent alerts */
+.alerts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.alert {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: var(--shadow);
+}
+.alert.warn { border-left-color: var(--red); }
+.alert-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+.alert p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+/* Section headers */
+.sec {
+  margin-bottom: 26px;
+}
+.sec-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--teal-tint);
+  padding-bottom: 6px;
+}
+.sec-head h2 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--teal-dark);
+}
+[data-theme="dark"] .sec-head h2 { color: var(--teal-mid); }
+.sec-hint {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* Timeline */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.tl-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  position: relative;
+}
+.tl-item.latest {
+  border-color: var(--teal);
+  background: var(--teal-pale);
+}
+.tl-date {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--teal-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+[data-theme="dark"] .tl-date { color: var(--teal-mid); }
+.tl-who {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 2px 0 6px;
+}
+.tl-text {
+  font-size: 13.5px;
+  margin: 0;
+  color: var(--ink);
+}
+
+/* Filter bar & Ask/Lead cards */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.fbtn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.fbtn.active {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #FFFFFF;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.card[hidden] { display: none; }
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.chip {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.chip-now { background: var(--red-pale); color: var(--red); }
+[data-theme="dark"] .chip-now { color: #F1948A; }
+.chip-wed { background: var(--teal-pale); color: var(--teal-dark); }
+[data-theme="dark"] .chip-wed { color: var(--teal-mid); }
+.chip-lead { background: var(--gold-pale); color: var(--gold-ink); }
+.owner-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.card h3 {
+  margin: 0;
+  font-size: 15.5px;
+  color: var(--ink);
+}
+.card p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+.quote {
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--surface-alt);
+  border-left: 3px solid var(--teal-mid);
+  padding: 6px 9px;
+  border-radius: 0 6px 6px 0;
+  margin-top: 2px;
+}
+
+/* Comparison Table */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  font-size: 13.5px;
+}
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th {
+  background: var(--teal-dark);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+tr:last-child td { border-bottom: 0; }
+tr.hl td { background: var(--teal-pale); }
+.badge-sm {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--teal-tint);
+  color: var(--teal-dark);
+}
+[data-theme="dark"] .badge-sm { color: var(--ink); }
+
+/* Next-week 5-day board */
+.week {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+.day {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.day-head {
+  background: var(--teal-pale);
+  border-bottom: 1px solid var(--border);
+  padding: 9px 11px;
+}
+.day.focus .day-head {
+  background: var(--teal);
+  color: #FFFFFF;
+}
+.day-name {
+  font-size: 13px;
+  font-weight: 700;
+}
+.day-sub {
+  font-size: 11.5px;
+  opacity: 0.85;
+}
+.day-body {
+  padding: 10px 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+}
+.task {
+  border-left: 3px solid var(--teal-mid);
+  padding-left: 8px;
+}
+.task.key { border-left-color: var(--gold); }
+.task-time {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--teal-dark);
+}
+[data-theme="dark"] .task-time { color: var(--teal-mid); }
+.task-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 1px 0 2px;
+}
+.task-desc {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 0;
+}
+.task-owner {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  border-radius: 5px;
+  color: var(--ink);
+}
+
+/* Decisions box */
+.decisions {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.dec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  cursor: pointer;
+}
+.dec-item input {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--teal);
+  flex-shrink: 0;
+}
+.dec-item.done { opacity: 0.65; }
+.dec-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.dec-desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Footnotes */
+.fn-ref {
+  font-size: 11px;
+  font-weight: 700;
+  vertical-align: super;
+  margin-left: 1px;
+}
+.footnotes {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.footnotes ol {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.footnotes li { word-break: break-word; }
+
+/* Bilingual visibility */
+[data-lang="vi"] { display: none; }
+html[lang="vi"] [data-lang="en"] { display: none; }
+html[lang="vi"] [data-lang="vi"] { display: initial; }
+html[lang="vi"] div[data-lang="vi"],
+html[lang="vi"] p[data-lang="vi"],
+html[lang="vi"] li[data-lang="vi"] { display: block; }
+
+/* Responsive breakpoints */
+@media (max-width: 960px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .week { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .topbar-inner { padding: 8px 16px; }
+  .brand img { height: 20px; }
+  .brand-sep, .brand-tag { display: none; }
+  .wrap { padding: 14px 16px 36px; }
+  .hero { padding: 14px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .stat { padding: 10px 11px; }
+  .stat-num { font-size: 18px; }
+  .alerts { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr; }
+  .week { grid-template-columns: 1fr; }
+  /* Stacked cards for comparison table on phone */
+  .table-wrap { overflow-x: visible; border: 0; background: transparent; box-shadow: none; }
+  table { min-width: 0; display: block; }
+  thead { display: none; }
+  tbody { display: flex; flex-direction: column; gap: 10px; }
+  tr {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: var(--shadow);
+  }
+  tr.hl { border-color: var(--teal); background: var(--teal-pale); }
+  td {
+    display: block;
+    padding: 4px 0;
+    border: 0;
+  }
+  td:first-child {
+    font-size: 15px;
+    padding-bottom: 6px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  td[data-en]::before {
+    content: attr(data-en) ": ";
+    font-weight: 700;
+    color: var(--teal-dark);
+    font-size: 12px;
+  }
+  [data-theme="dark"] td[data-en]::before { color: var(--teal-mid); }
+  html[lang="vi"] td[data-vi]::before {
+    content: attr(data-vi) ": ";
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <img src="data:image/png;base64,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" alt="Allotrope Partners">
+      <span class="brand-sep" aria-hidden="true"></span>
+      <span class="brand-tag" data-lang="en">BIDV Next-Week Brief</span>
+      <span class="brand-tag" data-lang="vi">Tóm tắt BIDV tuần tới</span>
+    </div>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Language">
+        <button id="btn-en" type="button" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-vi" type="button" onclick="setLang('vi')">VI</button>
+      </div>
+      <button id="btn-theme" type="button" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">Dark</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-meta">
+      <span class="pill pill-internal" data-lang="en">Internal - for team discussion</span>
+      <span class="pill pill-internal" data-lang="vi">Nội bộ - phục vụ trao đổi nhóm</span>
+      <span class="pill pill-week" data-lang="en">Week of 30 Nov - 4 Dec 2026</span>
+      <span class="pill pill-week" data-lang="vi">Tuần 30/11 - 04/12/2026</span>
+      <span class="pill pill-nda" data-lang="en">No BIDV submission figures shown (NDA)</span>
+      <span class="pill pill-nda" data-lang="vi">Không hiển thị số liệu danh mục BIDV (NDA)</span>
+    </div>
+
+    <h1 data-lang="en">BIDV SBTi framework alignment: Thai Linh's 26 Nov asks and next-week plan</h1>
+    <h1 data-lang="vi">Thống nhất khung SBTi với BIDV: yêu cầu ngày 26/11 của chị Thái Linh và kế hoạch tuần tới</h1>
+
+    <p class="hero-sub" data-lang="en">
+      On 26 Nov, Thai Linh (BIDV Ban QLRRTH) proposed a Wed 2 Dec 14:00 working session to lock in the SBTi framework and tools, plus a global methods benchmark for BIDV's Executive Board.<a class="fn-ref" href="#fn1">[1]</a> This brief sets out her asks, verified leads, and our 5-day plan.
+    </p>
+    <p class="hero-sub" data-lang="vi">
+      Ngày 26/11, chị Thái Linh (Ban QLRRTH, BIDV) đề xuất họp lúc 14h thứ Tư 02/12 để thống nhất khung và công cụ SBTi, kèm bảng so sánh phương pháp toàn cầu trình Ban Lãnh đạo.<a class="fn-ref" href="#fn1">[1]</a> Trang này tóm tắt các yêu cầu, nguồn kiểm chứng và kế hoạch 5 ngày của nhóm Allotrope.
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">3 + 1</div>
+        <div class="stat-label" data-lang="en">Open asks + missing file</div>
+        <div class="stat-label" data-lang="vi">Yêu cầu mở + thiếu tệp</div>
+        <div class="stat-note" data-lang="en">FINZ/FINT, benchmark, BLĐ case</div>
+        <div class="stat-note" data-lang="vi">FINZ/FINT, so sánh, lý do trình BLĐ</div>
+      </div>
+      <div class="stat gold">
+        <div class="stat-num" data-lang="en">Wed 2 Dec</div>
+        <div class="stat-num" data-lang="vi">T4 02/12</div>
+        <div class="stat-label" data-lang="en">Proposed BIDV meeting (14:00)</div>
+        <div class="stat-label" data-lang="vi">Lịch họp BIDV đề xuất (14h00)</div>
+        <div class="stat-note" data-lang="en">1 overlap: Tinh/Tung 1:1</div>
+        <div class="stat-note" data-lang="vi">Trùng 1 lịch nội bộ: Tinh/Tùng</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label" data-lang="en">Team decisions Monday</div>
+        <div class="stat-label" data-lang="vi">Quyết định cần chốt thứ Hai</div>
+        <div class="stat-note" data-lang="en">Mon 30 Nov 13:30 weekly call</div>
+        <div class="stat-note" data-lang="vi">Cuộc họp tuần 13h30 thứ Hai 30/11</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-lang="en">Dec 2026</div>
+        <div class="stat-num" data-lang="vi">Tháng 12/2026</div>
+        <div class="stat-label" data-lang="en">MOU roadmap target</div>
+        <div class="stat-label" data-lang="vi">Mốc lộ trình Net Zero theo MOU</div>
+        <div class="stat-note" data-lang="en">2026 draft sits on Drive (16 Nov)</div>
+        <div class="stat-note" data-lang="vi">Bản dự thảo 2026 đã lên Drive (16/11)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- URGENT ALERTS -->
+  <div class="alerts">
+    <div class="alert warn">
+      <div class="alert-title" data-lang="en">Missing attachment in Thai Linh's 26 Nov email</div>
+      <div class="alert-title" data-lang="vi">Email ngày 26/11 của chị Linh thiếu tệp đính kèm</div>
+      <p data-lang="en">Linh referenced an attached FINZ Excel file and left a placeholder "(...)" for other documents, but the email arrived with zero attachments.<a class="fn-ref" href="#fn1">[1]</a> Flag this in Monday's reply and pull the official SBTi FINZ v1.1 workbook directly.<a class="fn-ref" href="#fn5">[5]</a></p>
+      <p data-lang="vi">Chị Linh ghi "(file excel đính kèm)" cho công cụ FINZ và để trống "các tài liệu (...)", nhưng email không có tệp đính kèm nào.<a class="fn-ref" href="#fn1">[1]</a> Cần nhắc chị gửi lại trong thư sáng thứ Hai và tải sẵn bộ FINZ v1.1 từ SBTi.<a class="fn-ref" href="#fn5">[5]</a></p>
+    </div>
+    <div class="alert">
+      <div class="alert-title" data-lang="en">Calendar check: Wed 2 Dec 14:00 is clearable</div>
+      <div class="alert-title" data-lang="vi">Kiểm tra lịch: chiều thứ Tư 02/12 từ 14h00 thu xếp được</div>
+      <p data-lang="en">Tung's only conflict at Wed 2 Dec 14:00 is the internal 30-minute "Tinh/Tung" 1:1.<a class="fn-ref" href="#fn9">[9]</a> Move that slot Monday morning and confirm 2 Dec 14:00 with BIDV once Hang confirms.</p>
+      <p data-lang="vi">Lịch của anh Tùng lúc 14h00 thứ Tư 02/12 chỉ trùng cuộc họp nội bộ 30 phút "Tinh/Tung".<a class="fn-ref" href="#fn9">[9]</a> Dời lịch này sáng thứ Hai và xác nhận với BIDV sau khi Hằng chốt lịch.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: TIMELINE -->
+  <section class="sec" id="timeline">
+    <div class="sec-head">
+      <h2 data-lang="en">1. Thread timeline (Aug - Nov 2026)</h2>
+      <h2 data-lang="vi">1. Dòng thời gian trao đổi (Tháng 8 - 11/2026)</h2>
+      <span class="sec-hint" data-lang="en">Gmail thread 1a1ab38b0cd2991e + Output 2.1 Drive uploads</span>
+      <span class="sec-hint" data-lang="vi">Luồng email 1a1ab38b0cd2991e và các tệp Output 2.1 trên Drive</span>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">20 Aug &amp; 12 Oct 2026</div>
+        <div class="tl-who" data-lang="en">BIDV &amp; Allotrope Vietnam</div>
+        <div class="tl-who" data-lang="vi">BIDV và Allotrope Việt Nam</div>
+        <p class="tl-text" data-lang="en">BIDV set Dec 2026 as target for Net Zero roadmap recommendations; both parties signed the 2026-2027 MOU and NDA on 12 Oct.<a class="fn-ref" href="#fn2">[2]</a></p>
+        <p class="tl-text" data-lang="vi">BIDV đề xuất hoàn thành khuyến nghị lộ trình Net Zero trong tháng 12/2026; hai bên ký MOU 2026-2027 và NDA ngày 12/10.<a class="fn-ref" href="#fn2">[2]</a></p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">5 - 6 Nov 2026</div>
+        <div class="tl-who" data-lang="en">Thai Linh &rarr; Tung Ho</div>
+        <div class="tl-who" data-lang="vi">Thái Linh &rarr; Tùng Hồ</div>
+        <p class="tl-text" data-lang="en">BIDV sent its preliminary FE workbook under NDA (no third-party sharing without approval); Tung confirmed the NDA rule in writing.<a class="fn-ref" href="#fn2">[2]</a></p>
+        <p class="tl-text" data-lang="vi">BIDV gửi tệp dữ liệu phát thải tài chính sơ bộ kèm điều khoản không chia sẻ bên thứ ba; anh Tùng xác nhận bằng văn bản.<a class="fn-ref" href="#fn2">[2]</a></p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">11 &amp; 16 Nov 2026</div>
+        <div class="tl-who" data-lang="en">Allotrope (Hang, Tung)</div>
+        <div class="tl-who" data-lang="vi">Allotrope (Hằng, Tùng)</div>
+        <p class="tl-text" data-lang="en">Delivered SBTi training (11 Nov), sent 3 sector Excel tools (coal power, steel, cement), and uploaded the 2026 Net Zero Roadmap draft to Drive (16 Nov).<a class="fn-ref" href="#fn3">[3]</a></p>
+        <p class="tl-text" data-lang="vi">Hoàn thành đào tạo SBTi (11/11), gửi 3 công cụ Excel ngành (nhiệt điện than, thép, xi măng) và đưa bản dự thảo Lộ trình Net Zero 2026 lên Drive (16/11).<a class="fn-ref" href="#fn3">[3]</a></p>
+      </div>
+      <div class="tl-item latest">
+        <div class="tl-date">26 Nov 2026</div>
+        <div class="tl-who" data-lang="en">Thai Linh (17:52) &amp; Tung (19:43)</div>
+        <div class="tl-who" data-lang="vi">Thái Linh (17h52) &amp; Tùng (19h43)</div>
+        <p class="tl-text" data-lang="en">Linh requested a 2 Dec 14:00 session on FINZ/FINT and a global methods comparison for BLĐ.<a class="fn-ref" href="#fn1">[1]</a> Tung uploaded the GTB 2026-2027 Workplan &amp; Gantt v0.1.<a class="fn-ref" href="#fn4">[4]</a></p>
+        <p class="tl-text" data-lang="vi">Chị Linh đề nghị họp 14h ngày 02/12 về FINZ/FINT và bảng so sánh phương pháp trình BLĐ.<a class="fn-ref" href="#fn1">[1]</a> Anh Tùng đăng Kế hoạch &amp; Gantt GTB 2026-2027 v0.1.<a class="fn-ref" href="#fn4">[4]</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: ASK & LEAD BOARD -->
+  <section class="sec" id="board">
+    <div class="sec-head">
+      <h2 data-lang="en">2. Asks and leads board</h2>
+      <h2 data-lang="vi">2. Bảng yêu cầu và manh mối chuẩn bị</h2>
+      <span class="sec-hint" data-lang="en">Filter by timing to assign owners on Monday</span>
+      <span class="sec-hint" data-lang="vi">Lọc theo mức độ ưu tiên để phân công trong cuộc họp thứ Hai</span>
+    </div>
+
+    <div class="filters" role="tablist" aria-label="Filter asks">
+      <button class="fbtn active" type="button" data-filter="all" onclick="filterCards('all', this)">
+        <span data-lang="en">All (7)</span><span data-lang="vi">Tất cả (7)</span>
+      </button>
+      <button class="fbtn" type="button" data-filter="now" onclick="filterCards('now', this)">
+        <span data-lang="en">Action Mon-Tue (2)</span><span data-lang="vi">Xử lý T2-T3 (2)</span>
+      </button>
+      <button class="fbtn" type="button" data-filter="wed" onclick="filterCards('wed', this)">
+        <span data-lang="en">Wed 2 Dec agenda (3)</span><span data-lang="vi">Nội dung họp T4 (3)</span>
+      </button>
+      <button class="fbtn" type="button" data-filter="lead" onclick="filterCards('lead', this)">
+        <span data-lang="en">Research leads (2)</span><span data-lang="vi">Nghiên cứu nền (2)</span>
+      </button>
+    </div>
+
+    <div class="cards" id="card-grid">
+      <article class="card" data-cat="now">
+        <div class="card-top">
+          <span class="chip chip-now" data-lang="en">Action Mon AM</span>
+          <span class="chip chip-now" data-lang="vi">Xử lý sáng T2</span>
+          <span class="owner-tag" data-lang="en">Owner: Tung</span>
+          <span class="owner-tag" data-lang="vi">Phụ trách: Tùng</span>
+        </div>
+        <h3 data-lang="en">Confirm Wed 2 Dec 14:00 + request missing FINZ file</h3>
+        <h3 data-lang="vi">Xác nhận lịch họp 14h T4 02/12 và xin lại tệp FINZ</h3>
+        <p data-lang="en">Confirm the 2 Dec 14:00 slot (after moving Tinh/Tung 1:1) and ask Linh to resend the FINZ Excel file and clarify the "(...)" documents.<a class="fn-ref" href="#fn1">[1]</a><a class="fn-ref" href="#fn9">[9]</a></p>
+        <p data-lang="vi">Xác nhận họp lúc 14h00 ngày 02/12 (sau khi dời lịch Tinh/Tùng) và đề nghị chị Linh gửi bổ sung tệp Excel FINZ cùng danh mục tài liệu còn trống "(...)".<a class="fn-ref" href="#fn1">[1]</a><a class="fn-ref" href="#fn9">[9]</a></p>
+        <div class="quote">"BIDV đề xuất họp ngày 2/12 (từ 14h)... công cụ FINZ (file excel đính kèm), các tài liệu (...)"</div>
+      </article>
+
+      <article class="card" data-cat="now">
+        <div class="card-top">
+          <span class="chip chip-now" data-lang="en">Send Tue PM</span>
+          <span class="chip chip-now" data-lang="vi">Gửi chiều T3</span>
+          <span class="owner-tag" data-lang="en">Owner: Hang + Tung</span>
+          <span class="owner-tag" data-lang="vi">Phụ trách: Hằng + Tùng</span>
+        </div>
+        <h3 data-lang="en">Advance note: global methods benchmark + BLĐ case</h3>
+        <h3 data-lang="vi">Gửi trước bảng so sánh phương pháp và lý do chọn SBTi</h3>
+        <p data-lang="en">Linh invited early replies on ready topics.<a class="fn-ref" href="#fn1">[1]</a> Send a 1-page comparison (SBTi, PACTA, PRB, legacy NZBA, PCAF+IEA) with bank counts and why SBTi fits BIDV's Executive Board.</p>
+        <p data-lang="vi">Chị Linh đề nghị phản hồi sớm các nội dung đã sẵn sàng.<a class="fn-ref" href="#fn1">[1]</a> Gửi trước bản 1 trang so sánh SBTi, PACTA, PRB, khung NZBA cũ, PCAF+IEA kèm số ngân hàng áp dụng và luận điểm trình BLĐ.</p>
+        <div class="quote">"Với bất cứ nội dung nào trên đây mà phía Allotrope có sẵn thông tin thì có thể phản hồi trước luôn ạ."</div>
+      </article>
+
+      <article class="card" data-cat="wed">
+        <div class="card-top">
+          <span class="chip chip-wed" data-lang="en">Wed 2 Dec</span>
+          <span class="chip chip-wed" data-lang="vi">Họp T4 02/12</span>
+          <span class="owner-tag" data-lang="en">Owner: Hang</span>
+          <span class="owner-tag" data-lang="vi">Phụ trách: Hằng</span>
+        </div>
+        <h3 data-lang="en">FINZ vs FINT choice and Excel input comparison</h3>
+        <h3 data-lang="vi">Chọn khung FINZ hay FINT và đối chiếu dữ liệu Excel</h3>
+        <p data-lang="en">SBTi keeps both FINT (near-term 5-10 yr) and FINZ (net-zero to 2050, PIC method) open permanently.<a class="fn-ref" href="#fn5">[5]</a> Map exact Excel inputs side by side so BIDV sees what its current PCAF data covers.</p>
+        <p data-lang="vi">SBTi duy trì song song cả FINT (ngắn hạn 5-10 năm) và FINZ (Net-Zero đến 2050, phương pháp PIC).<a class="fn-ref" href="#fn5">[5]</a> Đối chiếu dữ liệu đầu vào giữa hai tệp Excel để BIDV thấy dữ liệu PCAF hiện có đáp ứng đến đâu.</p>
+      </article>
+
+      <article class="card" data-cat="wed">
+        <div class="card-top">
+          <span class="chip chip-wed" data-lang="en">Wed 2 Dec</span>
+          <span class="chip chip-wed" data-lang="vi">Họp T4 02/12</span>
+          <span class="owner-tag" data-lang="en">Owner: Hang + Tinh</span>
+          <span class="owner-tag" data-lang="vi">Phụ trách: Hằng + Tình</span>
+        </div>
+        <h3 data-lang="en">Other sectors data map (beyond power, steel, cement)</h3>
+        <h3 data-lang="vi">Bản đồ dữ liệu các ngành khác (ngoài điện, thép, xi măng)</h3>
+        <p data-lang="en">BIDV only wants a high-level view of which future sectors need what data.<a class="fn-ref" href="#fn1">[1]</a> Cover SBTi's Buildings, Maritime, and FLAG tools plus real estate mortgages and fossil fuel policies.<a class="fn-ref" href="#fn5">[5]</a></p>
+        <p data-lang="vi">BIDV mới cần nắm sơ bộ ngành nào cần dữ liệu gì để mở rộng sau này.<a class="fn-ref" href="#fn1">[1]</a> Tóm tắt yêu cầu của công cụ Tòa nhà (Buildings), Hàng hải (Maritime), FLAG, thế chấp bất động sản và chính sách nhiên liệu hóa thạch.<a class="fn-ref" href="#fn5">[5]</a></p>
+      </article>
+
+      <article class="card" data-cat="wed">
+        <div class="card-top">
+          <span class="chip chip-wed" data-lang="en">Wed 2 Dec</span>
+          <span class="chip chip-wed" data-lang="vi">Họp T4 02/12</span>
+          <span class="owner-tag" data-lang="en">Owner: Hang</span>
+          <span class="owner-tag" data-lang="vi">Phụ trách: Hằng</span>
+        </div>
+        <h3 data-lang="en">Cross-sector SBTi rules: CNZS (long-term) and CNTC (near-term)</h3>
+        <h3 data-lang="vi">Lưu ý khung liên ngành: CNZS (dài hạn) và CNTC (ngắn hạn)</h3>
+        <p data-lang="en">BIDV does not validate under CNZS or CNTC directly, but corporate borrowers do.<a class="fn-ref" href="#fn5">[5]</a> Explain how borrower targets feed BIDV's Portfolio Coverage and Climate Alignment metrics.</p>
+        <p data-lang="vi">BIDV không tự thẩm định theo CNZS hay CNTC, nhưng khách hàng doanh nghiệp của BIDV áp dụng hai khung này.<a class="fn-ref" href="#fn5">[5]</a> Làm rõ cách mục tiêu của khách hàng tính vào chỉ tiêu tỷ lệ danh mục (Portfolio Coverage) của BIDV.</p>
+      </article>
+
+      <article class="card" data-cat="lead">
+        <div class="card-top">
+          <span class="chip chip-lead" data-lang="en">Lead ready</span>
+          <span class="chip chip-lead" data-lang="vi">Đã có nguồn</span>
+          <span class="owner-tag" data-lang="en">Owner: Tinh</span>
+          <span class="owner-tag" data-lang="vi">Phụ trách: Tình</span>
+        </div>
+        <h3 data-lang="en">Pull live bank counts from SBTi Target Dashboard</h3>
+        <h3 data-lang="vi">Trích số ngân hàng thực tế từ SBTi Target Dashboard</h3>
+        <p data-lang="en">Over 180 financial institutions hold validated SBTi targets (about one-third commercial banks).<a class="fn-ref" href="#fn6">[6]</a> Export the live weekly Dashboard Excel on Monday for an exact bank count by region.</p>
+        <p data-lang="vi">Hơn 180 tổ chức tài chính đã được SBTi thẩm định mục tiêu (khoảng một phần ba là ngân hàng thương mại).<a class="fn-ref" href="#fn6">[6]</a> Xuất tệp Excel cập nhật hàng tuần từ Dashboard vào thứ Hai để lấy số liệu ngân hàng theo khu vực.</p>
+      </article>
+
+      <article class="card" data-cat="lead">
+        <div class="card-top">
+          <span class="chip chip-lead" data-lang="en">Lead ready</span>
+          <span class="chip chip-lead" data-lang="vi">Đã có nguồn</span>
+          <span class="owner-tag" data-lang="en">Owner: Hang + Tung</span>
+          <span class="owner-tag" data-lang="vi">Phụ trách: Hằng + Tùng</span>
+        </div>
+        <h3 data-lang="en">Verify SBTi Services fee schedule for BIDV BLĐ</h3>
+        <h3 data-lang="vi">Xác minh biểu phí thẩm định SBTi Services trình BLĐ</h3>
+        <p data-lang="en">Under SBTi Services v6/v6.1 (effective 5 Jan 2026), FI validation fees run USD 20,000-49,800 with no standard FI discount.<a class="fn-ref" href="#fn10">[10]</a> Confirm the exact tier for BIDV before Wednesday.</p>
+        <p data-lang="vi">Theo biểu phí SBTi Services v6/v6.1 (hiệu lực từ 05/01/2026), phí thẩm định cho tổ chức tài chính ở mức 20.000-49.800 USD và không áp dụng giảm phí tiêu chuẩn.<a class="fn-ref" href="#fn10">[10]</a> Xác nhận đúng bậc phí cho BIDV trước thứ Tư.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- SECTION 3: GLOBAL METHODS SNAPSHOT -->
+  <section class="sec" id="methods">
+    <div class="sec-head">
+      <h2 data-lang="en">3. Global bank target-setting methods (draft for Ask 2 &amp; Ask 3)</h2>
+      <h2 data-lang="vi">3. So sánh phương pháp quốc tế cho ngân hàng (dự thảo cho Mục 2 &amp; 3)</h2>
+      <span class="sec-hint" data-lang="en">Verify exact SBTi bank count from live dashboard Excel on Mon 30 Nov</span>
+      <span class="sec-hint" data-lang="vi">Kiểm tra lại số ngân hàng SBTi từ tệp Excel Dashboard vào thứ Hai 30/11</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th><span data-lang="en">Method</span><span data-lang="vi">Phương pháp</span></th>
+            <th><span data-lang="en">Status (2026)</span><span data-lang="vi">Trạng thái (2026)</span></th>
+            <th><span data-lang="en">Adoption count</span><span data-lang="vi">Số tổ chức dùng</span></th>
+            <th><span data-lang="en">Key data inputs</span><span data-lang="vi">Dữ liệu đầu vào chính</span></th>
+            <th><span data-lang="en">Validation &amp; fit for BIDV</span><span data-lang="vi">Thẩm định &amp; mức phù hợp BIDV</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hl">
+            <td><strong>SBTi FI (FINT / FINZ)</strong><a class="fn-ref" href="#fn5">[5]</a></td>
+            <td data-en="Status" data-vi="Trạng thái"><span class="badge-sm" data-lang="en">Active standard</span><span class="badge-sm" data-lang="vi">Chuẩn đang áp dụng</span></td>
+            <td data-en="Adoption" data-vi="Số tổ chức"><span data-lang="en">180+ FIs validated (~1/3 banks)<a class="fn-ref" href="#fn6">[6]</a></span><span data-lang="vi">&gt;180 TCTC thẩm định (~1/3 là ngân hàng)<a class="fn-ref" href="#fn6">[6]</a></span></td>
+            <td data-en="Data inputs" data-vi="Dữ liệu đầu vào"><span data-lang="en">PCAF baseline + sector physical output (MWh, tonnes) or borrower targets</span><span data-lang="vi">Dữ liệu nền PCAF + sản lượng ngành (MWh, tấn) hoặc mục tiêu khách hàng</span></td>
+            <td data-en="Fit for BIDV" data-vi="Phù hợp BIDV"><span data-lang="en">Independent validation (paid). Strongest credibility for BLĐ after NZBA exit; can align first, validate later.</span><span data-lang="vi">Thẩm định độc lập (có phí). Uy tín cao nhất trình BLĐ sau khi NZBA giải thể; có thể áp dụng trước, thẩm định sau.</span></td>
+          </tr>
+          <tr>
+            <td><strong>PACTA for Banks (RMI)</strong><a class="fn-ref" href="#fn8">[8]</a></td>
+            <td data-en="Status" data-vi="Trạng thái"><span data-lang="en">Active open tool</span><span data-lang="vi">Công cụ mở</span></td>
+            <td data-en="Adoption" data-vi="Số tổ chức"><span data-lang="en">1,500-3,000+ FIs; 17 pilot banks<a class="fn-ref" href="#fn8">[8]</a></span><span data-lang="vi">1.500-3.000+ TCTC; 17 ngân hàng thí điểm<a class="fn-ref" href="#fn8">[8]</a></span></td>
+            <td data-en="Data inputs" data-vi="Dữ liệu đầu vào"><span data-lang="en">Loanbook + asset-level company data (ABCD; thin coverage in Vietnam)</span><span data-lang="vi">Danh mục vay + dữ liệu tài sản cấp nhà máy (ABCD; độ phủ tại VN còn mỏng)</span></td>
+            <td data-en="Fit for BIDV" data-vi="Phù hợp BIDV"><span data-lang="en">No target validation; free analytics tool. Useful complement, not a standalone BLĐ commitment framework.</span><span data-lang="vi">Không thẩm định mục tiêu; công cụ phân tích miễn phí. Phù hợp bổ trợ, không thay khung cam kết trình BLĐ.</span></td>
+          </tr>
+          <tr>
+            <td><strong>UNEP FI PRB</strong><a class="fn-ref" href="#fn8">[8]</a></td>
+            <td data-en="Status" data-vi="Trạng thái"><span data-lang="en">Active coalition</span><span data-lang="vi">Liên minh hoạt động</span></td>
+            <td data-en="Adoption" data-vi="Số tổ chức"><span data-lang="en">350+ signatory banks (~50% global assets)<a class="fn-ref" href="#fn8">[8]</a></span><span data-lang="vi">&gt;350 ngân hàng (~50% tài sản toàn cầu)<a class="fn-ref" href="#fn8">[8]</a></span></td>
+            <td data-en="Data inputs" data-vi="Dữ liệu đầu vào"><span data-lang="en">Flexible: bank picks its own climate metrics and sector baselines</span><span data-lang="vi">Linh hoạt: ngân hàng tự chọn chỉ số khí hậu và đường cơ sở ngành</span></td>
+            <td data-en="Fit for BIDV" data-vi="Phù hợp BIDV"><span data-lang="en">Self-reported (UNEP FI membership fee). Broad ESG umbrella, less rigorous on 2030/2050 sector pathways.</span><span data-lang="vi">Tự công bố (phí thành viên UNEP FI). Bao quát ESG rộng nhưng ít chặt chẽ về lộ trình ngành 2030/2050.</span></td>
+          </tr>
+          <tr>
+            <td><strong>NZBA Guidelines</strong><a class="fn-ref" href="#fn7">[7]</a></td>
+            <td data-en="Status" data-vi="Trạng thái"><span data-lang="en">Alliance dissolved Oct 2025</span><span data-lang="vi">Giải thể tháng 10/2025</span></td>
+            <td data-en="Adoption" data-vi="Số tổ chức"><span data-lang="en">0 active members; open reference guide<a class="fn-ref" href="#fn7">[7]</a></span><span data-lang="vi">Không còn thành viên; tài liệu mở<a class="fn-ref" href="#fn7">[7]</a></span></td>
+            <td data-en="Data inputs" data-vi="Dữ liệu đầu vào"><span data-lang="en">PCAF baseline + bank-chosen IEA/NGFS sector scenarios</span><span data-lang="vi">Dữ liệu PCAF + kịch bản ngành IEA/NGFS do ngân hàng chọn</span></td>
+            <td data-en="Fit for BIDV" data-vi="Phù hợp BIDV"><span data-lang="en">No active body or peer review. Reference only; weak governance signal for BIDV's Executive Board.</span><span data-lang="vi">Không còn tổ chức vận hành. Chỉ để tham khảo kỹ thuật, khó dùng làm chuẩn cam kết trình BLĐ.</span></td>
+          </tr>
+          <tr>
+            <td><strong>PCAF + IEA / NGFS</strong><a class="fn-ref" href="#fn10">[10]</a></td>
+            <td data-en="Status" data-vi="Trạng thái"><span data-lang="en">Custom internal</span><span data-lang="vi">Tự xây dựng nội bộ</span></td>
+            <td data-en="Adoption" data-vi="Số tổ chức"><span data-lang="en">Widely used internally (no public registry)</span><span data-lang="vi">Nhiều ngân hàng tự dùng (không có danh bộ)</span></td>
+            <td data-en="Data inputs" data-vi="Dữ liệu đầu vào"><span data-lang="en">PCAF financed emissions + public IEA NZE / NGFS / Vietnam PDP8 curves</span><span data-lang="vi">Phát thải tài chính PCAF + đường cong IEA NZE / NGFS / Quy hoạch điện VIII</span></td>
+            <td data-en="Fit for BIDV" data-vi="Phù hợp BIDV"><span data-lang="en">Lowest data barrier and zero validation fee, but self-declared with lower external credibility than SBTi.</span><span data-lang="vi">Rào cản dữ liệu thấp nhất, không mất phí thẩm định, nhưng mức tin cậy bên ngoài thấp hơn SBTi.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 4: NEXT-WEEK PLAN -->
+  <section class="sec" id="plan">
+    <div class="sec-head">
+      <h2 data-lang="en">4. Proposed next-week plan (Mon 30 Nov - Fri 4 Dec 2026)</h2>
+      <h2 data-lang="vi">4. Kế hoạch dự kiến tuần tới (Thứ Hai 30/11 - Thứ Sáu 04/12/2026)</h2>
+      <span class="sec-hint" data-lang="en">Anchored to existing team calls on Tung's calendar</span>
+      <span class="sec-hint" data-lang="vi">Gắn với lịch họp định kỳ hiện có của nhóm Allotrope</span>
+    </div>
+
+    <div class="week">
+      <div class="day">
+        <div class="day-head">
+          <div class="day-name" data-lang="en">Mon 30 Nov</div>
+          <div class="day-name" data-lang="vi">Thứ Hai 30/11</div>
+          <div class="day-sub" data-lang="en">Confirm &amp; align</div>
+          <div class="day-sub" data-lang="vi">Xác nhận &amp; chốt hướng</div>
+        </div>
+        <div class="day-body">
+          <div class="task key">
+            <div class="task-time">09:00 - 11:00</div>
+            <div class="task-title" data-lang="en">Reply to Thai Linh</div>
+            <div class="task-title" data-lang="vi">Phản hồi chị Thái Linh</div>
+            <p class="task-desc" data-lang="en">Confirm Wed 2 Dec 14:00, flag missing FINZ attachment, move Tinh/Tung 1:1.<a class="fn-ref" href="#fn9">[9]</a></p>
+            <p class="task-desc" data-lang="vi">Xác nhận họp 14h T4 02/12, nhắc tệp FINZ bị thiếu, dời lịch Tinh/Tùng.<a class="fn-ref" href="#fn9">[9]</a></p>
+            <span class="task-owner">Tung</span>
+          </div>
+          <div class="task">
+            <div class="task-time">13:30 - 14:30</div>
+            <div class="task-title" data-lang="en">Vietnam weekly call</div>
+            <div class="task-title" data-lang="vi">Họp tuần Allotrope VN</div>
+            <p class="task-desc" data-lang="en">Close the 5 decisions below and assign Tuesday prep files.</p>
+            <p class="task-desc" data-lang="vi">Chốt 5 quyết định bên dưới và phân công tài liệu chuẩn bị cho thứ Ba.</p>
+            <span class="task-owner">Tung, Hang, Anh, Tinh</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-head">
+          <div class="day-name" data-lang="en">Tue 1 Dec</div>
+          <div class="day-name" data-lang="vi">Thứ Ba 01/12</div>
+          <div class="day-sub" data-lang="en">Prep &amp; pre-read</div>
+          <div class="day-sub" data-lang="vi">Chuẩn bị &amp; gửi trước</div>
+        </div>
+        <div class="day-body">
+          <div class="task">
+            <div class="task-time">09:00 - 12:00</div>
+            <div class="task-title" data-lang="en">Build prep pack</div>
+            <div class="task-title" data-lang="vi">Hoàn thiện bộ tài liệu</div>
+            <p class="task-desc" data-lang="en">Live SBTi bank count, FINZ vs FINT input matrix, other-sector map, CNZS/CNTC cheat sheet.</p>
+            <p class="task-desc" data-lang="vi">Số ngân hàng SBTi, bảng dữ liệu FINZ vs FINT, bản đồ ngành mở rộng, tóm tắt CNZS/CNTC.</p>
+            <span class="task-owner">Hang, Tinh</span>
+          </div>
+          <div class="task key">
+            <div class="task-time">13:00 - 13:30</div>
+            <div class="task-title" data-lang="en">Hang/Tung dry run</div>
+            <div class="task-title" data-lang="vi">Chạy thử Hằng/Tùng</div>
+            <p class="task-desc" data-lang="en">Review pre-read note and send Ask 2 &amp; Ask 3 summary to Linh by Tue 16:00.</p>
+            <p class="task-desc" data-lang="vi">Rà soát bản gửi trước và gửi tóm tắt Mục 2 &amp; 3 cho chị Linh trước 16h00.</p>
+            <span class="task-owner">Hang, Tung</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="day focus">
+        <div class="day-head">
+          <div class="day-name" data-lang="en">Wed 2 Dec</div>
+          <div class="day-name" data-lang="vi">Thứ Tư 02/12</div>
+          <div class="day-sub" data-lang="en">BIDV working session</div>
+          <div class="day-sub" data-lang="vi">Họp làm việc với BIDV</div>
+        </div>
+        <div class="day-body">
+          <div class="task key">
+            <div class="task-time">14:00 - 16:00</div>
+            <div class="task-title" data-lang="en">BIDV Ban QLRRTH meeting</div>
+            <div class="task-title" data-lang="vi">Họp Ban QLRRTH BIDV</div>
+            <p class="task-desc" data-lang="en">Walk through FINZ vs FINT Excel tools, agree target framework, confirm Dec roadmap scope.<a class="fn-ref" href="#fn1">[1]</a></p>
+            <p class="task-desc" data-lang="vi">Đối chiếu công cụ Excel FINZ và FINT, thống nhất khung áp dụng và phạm vi lộ trình tháng 12.<a class="fn-ref" href="#fn1">[1]</a></p>
+            <span class="task-owner">Hang (lead), Tung</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-head">
+          <div class="day-name" data-lang="en">Thu 3 Dec</div>
+          <div class="day-name" data-lang="vi">Thứ Năm 03/12</div>
+          <div class="day-sub" data-lang="en">Debrief &amp; Gantt</div>
+          <div class="day-sub" data-lang="vi">Rút kết &amp; cập nhật Gantt</div>
+        </div>
+        <div class="day-body">
+          <div class="task">
+            <div class="task-time">14:00 - 14:45</div>
+            <div class="task-title" data-lang="en">HP/GTB regular call</div>
+            <div class="task-title" data-lang="vi">Họp định kỳ HP/GTB</div>
+            <p class="task-desc" data-lang="en">Log agreed framework, update GTB Workplan &amp; Gantt v0.1, scope edits to 16 Nov roadmap draft.<a class="fn-ref" href="#fn3">[3]</a><a class="fn-ref" href="#fn4">[4]</a></p>
+            <p class="task-desc" data-lang="vi">Chốt khung đã thống nhất, cập nhật Gantt GTB v0.1 và phạm vi chỉnh sửa dự thảo lộ trình 16/11.<a class="fn-ref" href="#fn3">[3]</a><a class="fn-ref" href="#fn4">[4]</a></p>
+            <span class="task-owner">Tung, Hang, Anh</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-head">
+          <div class="day-name" data-lang="en">Fri 4 Dec</div>
+          <div class="day-name" data-lang="vi">Thứ Sáu 04/12</div>
+          <div class="day-sub" data-lang="en">Follow-up pack</div>
+          <div class="day-sub" data-lang="vi">Gửi biên bản &amp; tài liệu</div>
+        </div>
+        <div class="day-body">
+          <div class="task key">
+            <div class="task-time">09:00 - 12:00</div>
+            <div class="task-title" data-lang="en">Send BIDV follow-up</div>
+            <div class="task-title" data-lang="vi">Gửi kết luận cho BIDV</div>
+            <p class="task-desc" data-lang="en">Send meeting minutes and BLĐ Framework Summary before afternoon Hai Phong call (14:30).<a class="fn-ref" href="#fn9">[9]</a></p>
+            <p class="task-desc" data-lang="vi">Gửi biên bản họp và tóm tắt khung trình BLĐ trước cuộc họp Hải Phòng lúc 14h30.<a class="fn-ref" href="#fn9">[9]</a></p>
+            <span class="task-owner">Hang, Tung</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: DECISIONS BOX -->
+  <section class="sec" id="decisions">
+    <div class="sec-head">
+      <h2 data-lang="en">5. Decisions to make on Mon 30 Nov call</h2>
+      <h2 data-lang="vi">5. Năm quyết định cần chốt trong cuộc họp thứ Hai 30/11</h2>
+      <span class="sec-hint" data-lang="en">Tick boxes live during the call (saved in browser)</span>
+      <span class="sec-hint" data-lang="vi">Đánh dấu trực tiếp khi họp (tự lưu trên trình duyệt)</span>
+    </div>
+    <div class="decisions">
+      <div class="dec-list">
+        <label class="dec-item">
+          <input type="checkbox" data-dec="d1">
+          <div>
+            <div class="dec-title" data-lang="en">1. Recommended SBTi pathway: FINT first, FINZ directly, or staged FINT-to-FINZ?</div>
+            <div class="dec-title" data-lang="vi">1. Đề xuất lộ trình SBTi: bắt đầu bằng FINT, đi thẳng FINZ, hay theo giai đoạn FINT sang FINZ?</div>
+            <div class="dec-desc" data-lang="en">Lean recommendation: start with FINT (2030 near-term targets on power, steel, cement) and map FINZ gaps as Phase 2.</div>
+            <div class="dec-desc" data-lang="vi">Đề xuất nghiêng về: bắt đầu với FINT (mục tiêu 2030 cho điện, thép, xi măng) và đưa khoảng trống FINZ vào giai đoạn 2.</div>
+          </div>
+        </label>
+        <label class="dec-item">
+          <input type="checkbox" data-dec="d2">
+          <div>
+            <div class="dec-title" data-lang="en">2. Paid SBTi validation now vs SBTi-aligned internal targets first?</div>
+            <div class="dec-title" data-lang="vi">2. Đề xuất thẩm định SBTi có phí ngay hay áp dụng theo chuẩn SBTi nội bộ trước?</div>
+            <div class="dec-desc" data-lang="en">Flag SBTi Services v6/v6.1 fees (USD 20,000-49,800, no FI discount) candidly so Ban QLRRTH can brief BLĐ.<a class="fn-ref" href="#fn10">[10]</a></div>
+            <div class="dec-desc" data-lang="vi">Nêu rõ biểu phí SBTi Services v6/v6.1 (20.000-49.800 USD, không giảm phí cho TCTC) để Ban QLRRTH báo cáo đầy đủ lên BLĐ.<a class="fn-ref" href="#fn10">[10]</a></div>
+          </div>
+        </label>
+        <label class="dec-item">
+          <input type="checkbox" data-dec="d3">
+          <div>
+            <div class="dec-title" data-lang="en">3. What goes in Tuesday's advance reply vs Wednesday's live walkthrough?</div>
+            <div class="dec-title" data-lang="vi">3. Nội dung nào gửi trước vào thứ Ba, nội dung nào trình bày trực tiếp thứ Tư?</div>
+            <div class="dec-desc" data-lang="en">Send global comparison table, bank counts, and BLĐ rationale Tuesday; keep FINZ/FINT Excel walkthrough for Wednesday.</div>
+            <div class="dec-desc" data-lang="vi">Gửi bảng so sánh toàn cầu, số ngân hàng và lý do trình BLĐ vào thứ Ba; giữ phần đi sâu tệp Excel FINZ/FINT cho buổi họp thứ Tư.</div>
+          </div>
+        </label>
+        <label class="dec-item">
+          <input type="checkbox" data-dec="d4">
+          <div>
+            <div class="dec-title" data-lang="en">4. Wed 2 Dec 14:00 logistics: in-person at 194 Tran Quang Khai or online, and who joins?</div>
+            <div class="dec-title" data-lang="vi">4. Hình thức họp 14h T4 02/12: trực tiếp tại 194 Trần Quang Khải hay trực tuyến, ai tham gia?</div>
+            <div class="dec-desc" data-lang="en">Confirm Hang's availability and whether Tinh joins for data-input mapping; Tung moves Tinh/Tung 1:1.</div>
+            <div class="dec-desc" data-lang="vi">Xác nhận lịch của Hằng và việc Tình tham gia phần đối chiếu dữ liệu; anh Tùng dời lịch họp 1:1 Tinh/Tùng.</div>
+          </div>
+        </label>
+        <label class="dec-item">
+          <input type="checkbox" data-dec="d5">
+          <div>
+            <div class="dec-title" data-lang="en">5. December 2026 Net Zero Roadmap draft: hold edits until 2 Dec or flag baseline gaps now?</div>
+            <div class="dec-title" data-lang="vi">5. Bản dự thảo Lộ trình Net Zero tháng 12/2026: chờ sau họp 02/12 hay nêu luôn các điểm lệch dữ liệu?</div>
+            <div class="dec-desc" data-lang="en">Decide whether Wed 2 Dec also covers open questions on the 16 Nov roadmap draft (2025 vs 2024 baseline and activity estimates).<a class="fn-ref" href="#fn3">[3]</a></div>
+            <div class="dec-desc" data-lang="vi">Chốt xem buổi 02/12 có trao đổi thêm các điểm mở của bản dự thảo 16/11 (chênh lệch năm cơ sở 2025 và ước tính sản lượng) hay không.<a class="fn-ref" href="#fn3">[3]</a></div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: FOOTNOTES -->
+  <section class="sec" id="sources">
+    <div class="sec-head">
+      <h2 data-lang="en">6. Sources and footnotes</h2>
+      <h2 data-lang="vi">6. Nguồn trích dẫn và chú thích</h2>
+    </div>
+    <div class="footnotes">
+      <ol>
+        <li id="fn1">Gmail thread <code>1a1ab38b0cd2991e</code>, Msg <code>1a2177bf7a08aefb</code>, 26 Nov 2026 17:52 GMT+7, from Nguyen Thi Thai Linh (<code>linhntt61@bidv.com.vn</code>, BIDV Ban QLRRTH) to Tung Ho &amp; Hang Tran, subject: <em>RE: FW: BIDV | GTB Đề xuất hợp tác giai đoạn 2026/2027</em>. Zero attachments present despite body text "(file excel đính kèm)".</li>
+        <li id="fn2">Gmail thread <code>1a1ab38b0cd2991e</code>, Msg <code>1a1ab38b0cd2991e</code> / <code>1a1ab4373b322b61</code> (5 Nov 2026, Thai Linh) and Msg <code>1a1b051984270123</code> (6 Nov 2026, Tung Ho), plus quoted 20 Aug 2026 email from Vu Thu Huong (<code>huongvt14@bidv.com.vn</code>) setting the Dec 2026 roadmap milestone and 12 Oct 2026 MOU/NDA non-disclosure rule.</li>
+        <li id="fn3">Google Drive (GTB Output 2.1): 11 Nov training deck <a href="https://docs.google.com/presentation/d/1xxO4ckiERY754oOcejghM52lIVpNoIYt/edit" target="_blank" rel="noopener">[Shared] VIE_BIDV_Đào tạo lộ trình và kịch bản SBTi_11.11.2026 (1).pptx</a>; 3 filled sector tools in <a href="https://drive.google.com/drive/folders/1IfjWc6ciXLvoOEPb1y_v8e_bXYAF7hUm" target="_blank" rel="noopener">SBTi tools with BIDV data (Nov 2026)</a>; 16 Nov roadmap draft <a href="https://docs.google.com/document/d/1HM92fMrI7QfjoEikOEbufBBxLJZG2c3E/edit" target="_blank" rel="noopener">BIDV_VIE | ENG_Net Zero Roadmap_Cập nhật 2026 (bản sạch)</a>.</li>
+        <li id="fn4">Gmail thread <code>19fd17f9e43ed7c4</code>, Msg <code>1a217f556f241287</code>, 26 Nov 2026 19:43 GMT+7, from Tung Ho (<code>tah@allotropevc.com</code>), subject: <em>Re: GTB Vietnam 2026/2027 Implementation</em>, linking <a href="https://drive.google.com/open?id=1cFE2oAopKZ36wrAWtMzdV_OsHNdbEkC07wuax2Vnow0" target="_blank" rel="noopener">GTB Vietnam 2026-2027 Workplan &amp; Gantt v0.1</a>.</li>
+        <li id="fn5">Science Based Targets initiative (SBTi), <a href="https://sciencebasedtargets.org/financial-institutions" target="_blank" rel="noopener">Financial Institutions hub (FINZ Standard, FINZ Target-Setting Tool v1.1, FINT Near-Term Criteria, sector tools)</a>.</li>
+        <li id="fn6">Science Based Targets initiative (SBTi), <a href="https://sciencebasedtargets.org/target-dashboard" target="_blank" rel="noopener">Target Dashboard (weekly downloadable Excel dataset; 180+ validated FIs)</a>.</li>
+        <li id="fn7">UNEP FI, <a href="https://www.unepfi.org/net-zero-banking/" target="_blank" rel="noopener">Net-Zero Banking Alliance (Oct 2025 member vote to cease alliance operations; Guidelines retained as open reference)</a>.</li>
+        <li id="fn8">RMI, <a href="https://pacta.rmi.org/" target="_blank" rel="noopener">PACTA for Banks</a> (1,500-3,000+ FIs; 17 pilot banks); UNEP FI, <a href="https://www.unepfi.org/banking/bankingprinciples/" target="_blank" rel="noopener">Principles for Responsible Banking (PRB)</a> (350+ signatory banks, ~50% of global banking assets).</li>
+        <li id="fn9">Google Calendar (<code>tah@allotropevc.com</code>, primary), checked 27 Nov 2026 for 30 Nov - 4 Dec 2026: Mon 13:30 Allotrope Vietnam weekly; Tue 13:00 Hang/Tung weekly; Wed 14:00-14:30 Tinh/Tung; Thu 14:00 HP/GTB Vietnam regular; Fri 14:30 Hải Phòng progress meeting.</li>
+        <li id="fn10">SBTi Services, <a href="https://sbtiservices.com/" target="_blank" rel="noopener">Target Validation Service Offerings (v6/v6.1, effective 5 Jan 2026)</a>: FI validation fees USD 20,000-49,800, excluded from standard fee discounts; PCAF Global GHG Accounting Standard (<a href="https://carbonaccountingfinancials.com/" target="_blank" rel="noopener">carbonaccountingfinancials.com</a>).</li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<script>
+function setLang(lang) {
+  const l = (lang === 'vi') ? 'vi' : 'en';
+  document.documentElement.lang = l;
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  document.getElementById('btn-vi').classList.toggle('active', l === 'vi');
+  try { localStorage.setItem('bidv_brief_lang', l); } catch (e) {}
+}
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = cur === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  try { localStorage.setItem('bidv_brief_theme', next); } catch (e) {}
+}
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  const btn = document.getElementById('btn-theme');
+  btn.textContent = t === 'dark' ? 'Light' : 'Dark';
+}
+function filterCards(cat, btn) {
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#card-grid .card').forEach(c => {
+    c.hidden = (cat !== 'all' && c.dataset.cat !== cat);
+  });
+}
+(function init() {
+  const h = (location.hash || '').toLowerCase();
+  const q = new URLSearchParams(location.search);
+  let lang = q.get('lang') || (h.includes('vi') ? 'vi' : h.includes('en') ? 'en' : null);
+  if (!lang) { try { lang = localStorage.getItem('bidv_brief_lang'); } catch (e) {} }
+  setLang(lang || 'en');
+
+  let theme = q.get('theme') || (h.includes('dark') ? 'dark' : h.includes('light') ? 'light' : null);
+  if (!theme) { try { theme = localStorage.getItem('bidv_brief_theme'); } catch (e) {} }
+  applyTheme(theme || 'light');
+
+  document.querySelectorAll('input[data-dec]').forEach(cb => {
+    const key = 'bidv_dec_' + cb.dataset.dec;
+    try {
+      if (localStorage.getItem(key) === '1') {
+        cb.checked = true;
+        cb.closest('.dec-item').classList.add('done');
+      }
+    } catch (e) {}
+    cb.addEventListener('change', () => {
+      cb.closest('.dec-item').classList.toggle('done', cb.checked);
+      try { localStorage.setItem(key, cb.checked ? '1' : '0'); } catch (e) {}
+    });
+  });
+})();
+</script>
+</body>
+</html>
