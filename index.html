@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="vi" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -663,8 +663,8 @@ html[lang="vi"] li[data-lang="vi"] { display: block; }
     </div>
     <div class="controls">
       <div class="seg" role="group" aria-label="Language">
-        <button id="btn-en" type="button" class="active" onclick="setLang('en')">EN</button>
-        <button id="btn-vi" type="button" onclick="setLang('vi')">VI</button>
+        <button id="btn-en" type="button" onclick="setLang('en')">EN</button>
+        <button id="btn-vi" type="button" class="active" onclick="setLang('vi')">VI</button>
       </div>
       <button id="btn-theme" type="button" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">Dark</button>
     </div>
@@ -754,28 +754,28 @@ html[lang="vi"] li[data-lang="vi"] { display: block; }
     </div>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-date">20 Aug &amp; 12 Oct 2026</div>
+        <div class="tl-date">20/08 &amp; 12/10/2026</div>
         <div class="tl-who" data-lang="en">BIDV &amp; Allotrope Vietnam</div>
         <div class="tl-who" data-lang="vi">BIDV và Allotrope Việt Nam</div>
         <p class="tl-text" data-lang="en">BIDV set Dec 2026 as target for Net Zero roadmap recommendations; both parties signed the 2026-2027 MOU and NDA on 12 Oct.<a class="fn-ref" href="#fn2">[2]</a></p>
         <p class="tl-text" data-lang="vi">BIDV đề xuất hoàn thành khuyến nghị lộ trình Net Zero trong tháng 12/2026; hai bên ký MOU 2026-2027 và NDA ngày 12/10.<a class="fn-ref" href="#fn2">[2]</a></p>
       </div>
       <div class="tl-item">
-        <div class="tl-date">5 - 6 Nov 2026</div>
+        <div class="tl-date">05-06/11/2026</div>
         <div class="tl-who" data-lang="en">Thai Linh &rarr; Tung Ho</div>
         <div class="tl-who" data-lang="vi">Thái Linh &rarr; Tùng Hồ</div>
         <p class="tl-text" data-lang="en">BIDV sent its preliminary FE workbook under NDA (no third-party sharing without approval); Tung confirmed the NDA rule in writing.<a class="fn-ref" href="#fn2">[2]</a></p>
         <p class="tl-text" data-lang="vi">BIDV gửi tệp dữ liệu phát thải tài chính sơ bộ kèm điều khoản không chia sẻ bên thứ ba; anh Tùng xác nhận bằng văn bản.<a class="fn-ref" href="#fn2">[2]</a></p>
       </div>
       <div class="tl-item">
-        <div class="tl-date">11 &amp; 16 Nov 2026</div>
+        <div class="tl-date">11 &amp; 16/11/2026</div>
         <div class="tl-who" data-lang="en">Allotrope (Hang, Tung)</div>
         <div class="tl-who" data-lang="vi">Allotrope (Hằng, Tùng)</div>
         <p class="tl-text" data-lang="en">Delivered SBTi training (11 Nov), sent 3 sector Excel tools (coal power, steel, cement), and uploaded the 2026 Net Zero Roadmap draft to Drive (16 Nov).<a class="fn-ref" href="#fn3">[3]</a></p>
         <p class="tl-text" data-lang="vi">Hoàn thành đào tạo SBTi (11/11), gửi 3 công cụ Excel ngành (nhiệt điện than, thép, xi măng) và đưa bản dự thảo Lộ trình Net Zero 2026 lên Drive (16/11).<a class="fn-ref" href="#fn3">[3]</a></p>
       </div>
       <div class="tl-item latest">
-        <div class="tl-date">26 Nov 2026</div>
+        <div class="tl-date">26/11/2026</div>
         <div class="tl-who" data-lang="en">Thai Linh (17:52) &amp; Tung (19:43)</div>
         <div class="tl-who" data-lang="vi">Thái Linh (17h52) &amp; Tùng (19h43)</div>
         <p class="tl-text" data-lang="en">Linh requested a 2 Dec 14:00 session on FINZ/FINT and a global methods comparison for BLĐ.<a class="fn-ref" href="#fn1">[1]</a> Tung uploaded the GTB 2026-2027 Workplan &amp; Gantt v0.1.<a class="fn-ref" href="#fn4">[4]</a></p>
@@ -1201,7 +1201,7 @@ function filterCards(cat, btn) {
   const q = new URLSearchParams(location.search);
   let lang = q.get('lang') || (h.includes('vi') ? 'vi' : h.includes('en') ? 'en' : null);
   if (!lang) { try { lang = localStorage.getItem('bidv_brief_lang'); } catch (e) {} }
-  setLang(lang || 'en');
+  setLang(lang || 'vi');
 
   let theme = q.get('theme') || (h.includes('dark') ? 'dark' : h.includes('light') ? 'light' : null);
   if (!theme) { try { theme = localStorage.getItem('bidv_brief_theme'); } catch (e) {} }
