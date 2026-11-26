@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1179,7 +1179,7 @@ function setLang(lang) {
   try { localStorage.setItem('bidv_brief_lang', l); } catch (e) {}
 }
 function toggleTheme() {
-  const cur = document.documentElement.getAttribute('data-theme') || 'light';
+  const cur = document.documentElement.getAttribute('data-theme') || 'dark';
   const next = cur === 'dark' ? 'light' : 'dark';
   applyTheme(next);
   try { localStorage.setItem('bidv_brief_theme', next); } catch (e) {}
@@ -1205,7 +1205,7 @@ function filterCards(cat, btn) {
 
   let theme = q.get('theme') || (h.includes('dark') ? 'dark' : h.includes('light') ? 'light' : null);
   if (!theme) { try { theme = localStorage.getItem('bidv_brief_theme'); } catch (e) {} }
-  applyTheme(theme || 'light');
+  applyTheme(theme || 'dark');
 
   document.querySelectorAll('input[data-dec]').forEach(cb => {
     const key = 'bidv_dec_' + cb.dataset.dec;
